@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job_Application_Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <form onsubmit="validate(event)">
+        <h1 style="text-align: center;">Job Application Form</h1>
+        <fieldset>
+            <legend>Basic Details</legend>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name">&nbsp;&nbsp;
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name">
+            <br>
+            <br>
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation">&nbsp;&nbsp;
+            <label for="address_one">Address-1:</label>
+            <textarea name="add_one" id="address_one" style="width: 400px;height: 80px;"></textarea>
+            <br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email">&nbsp;&nbsp;
+            <label for="address_two">Address-2:</label>
+            <textarea name="add_two" id="address_two" style="width: 400px;height: 80px;"></textarea>
+            <br><br>
+            <label for="phone">Phone Nob:</label>
+            <input type="text" id="phone">&nbsp;&nbsp;
+            <label for="city">City:</label>
+            <input type="text" id="city">&nbsp;&nbsp;
+            <label for="state">State:</label>
+            <select name="states" id="state" required>
+                <option value="Gujarat" selected>Gujarat</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Rajastan">Rajastan</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Kerala">Kerala</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+            <br><br>
+            <label for="gender">Gender
+                <input type="radio" name="gender" class="gender">Male
+                <input type="radio" name="gender" class="gender">Female
+            </label>&nbsp;&nbsp;
+            <label for="zip_code">Zipcode:</label>
+            <input type="text" id="zip_code">
+            <br><br>
+            <label for="relationship">Relationship-status:</label>
+            <select name="relationship" id="relationship">
+                <option value="Unmarried" selected>Unmarried</option>
+                <option value="Married">Married</option>
+                <option value="Nosay">Prefer not to say</option>
+            </select>
+            <label for="birthday">Date of Birth:</label>
+            <input type="date" name="dob" id="birthday">
+        </fieldset>
+        <fieldset>
+            <legend>Educational Details</legend>
+            <button type="button" onclick="add_edu_exp()">Add</button>
+            <br><br>
+            <input type="text" id="course">
+            <input type="text" id="board">
+            <input type="text" id="passing_year">
+            <input type="text" id="result">
+            <br><br>
+            <table id="edu_table">
+                <tr>
+                    <th>Course</th>
+                    <th>Board</th>
+                    <th>Passing Year</th>
+                    <th>Result</th>
+                </tr>
+                <tbody id="edu_row">
+
+                </tbody>
+            </table>
+            <hr>
+
+        </fieldset>
+        <fieldset>
+            <legend>Work-Experience</legend>
+            <button type="button" onclick="add_work_exp()">Add</button>
+            <button type="button" onclick="del_work_exp()">Delete</button>
+            <br><br>
+            <div id="container">
+                <div id="work_block">
+                    <label for="company_name">Company Name:</label>
+                    <input type="text" id="company_name">
+                    <label for="from_date">From:</label>
+                    <input type="date" name="from_date" id="from_date">
+                    <label for="to_date">To Date:</label>
+                    <input type="date" name="to_date" id="to_date">
+                    <label for="package">Annual-Package:</label>
+                    <input type="text" id="package">
+                    <br><br>
+                    <label for="reason">Reason To Leave:</label>
+                    <textarea name="reason" id="reason" style="width: 200px;height: 120px;"></textarea>
+                    <label for="rcontact_nob">Ref Contact Nob:</label>
+                    <input type="text" id="rcontact_nob">
+                    <label for="rcontact_name">Ref Contact Name:</label>
+                    <input type="text" id="rcontact_name">
+                    <hr>
+                </div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>Languages known</legend>
+
+            <button type="button" onclick="add_lang()">Add</button>
+            <br><br>
+            <input type="text" id="language">
+            <br><br>
+            <table id="lang_container">
+                <tr>
+                    <th>Languages</th>
+                    <th>Read</th>
+                    <th>Write</th>
+                    <th>Speak</th>
+                </tr>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </fieldset>
+        <fieldset>
+            <legend>Technologies-Known</legend>
+            <button type="button" onclick="add_tech_lang()">Add</button>
+            <br><br>
+            <input type="text" id="tech">
+            <table id="tech_lang_container">
+
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Reference Contacts</legend>
+            <button type="button" onclick="ref_add()">Add</button>
+
+            <br><br>
+            <input type="text" id="name">
+            <input type="text" id="contact">
+            <input type="text" id="relation">
+            <br><br>
+            <table id="ref_table">
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Relation</th>
+                </tr>
+                <tbody id="reference_body">
+
+                </tbody>
+            </table>
+
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend>Preferences</legend>
+            <label for="preferedloc">Prefered Location:</label>
+            <select name="preferedloc" id="preferedloc" multiple>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Palanpur">Palanpur</option>
+                <option value="Disa">Disa</option>
+            </select>
+            <label for="noticeperiod">Notice Period:</label>
+            <input type="text" id="noticeperiod">
+            <label for="expect_ctc">Expected CTC:</label>
+            <input type="text" id="expect_ctc">
+            <label for="current_ctc">Current CTC:</label>
+            <input type="text" id="current_ctc">
+            <label for="dept">Department:</label>
+            <select name="dept" id="dept">
+                <option value="Development">Development</option>
+                <option value="Marketing">Marketing</option>
+                <option value="System_Designing">System-Designing</option>
+                <option value="QA_Testing">QA-Testing</option>
+            </select>
+        </fieldset>
+        <input type="submit" value="submit">
+    </form>
+    <script src="form.js"></script>
+</body>
+
+</html>
