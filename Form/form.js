@@ -12,6 +12,8 @@ function validate(event) {
     let check = false;
     let zipcode = document.getElementById("zip_code").value;
     let city = document.getElementById("city").value;
+    let notice = document.getElementById("noticeperiod").value;
+    let expectctc = document.getElementById("expect_ctc").value;
 
 
     // console.log(fname);
@@ -54,6 +56,12 @@ function validate(event) {
     // }
     // if (city.trim() === "") {
     //     alert("enter city name");
+    // }
+    // if (notice.trim() === "") {
+    //     alert("enter notice period");
+    // }
+    // if (expectctc.trim() === "") {
+    //     alert("Expected ctc not entered");
     // }
 
 }

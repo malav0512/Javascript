@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Task_2</title>
+    <link rel="stylesheet" href="task.css">
+</head>
+
+<body>
+    <table id="road">
+        <tr id="cols">
+            <td style="background-color: green;"></td>
+            <td id="0" style="color: antiquewhite; background-color: black;">North signal
+                <table>
+                    <tr id="signal">
+                        <td id="north-red" class="red light"></td>
+                        <td id="north-yellow" class="yellow light"></td>
+                        <td id="north-green" class="green light"></td>
+                    </tr>
+                </table>
+            </td>
+            <td style="background-color: green;"></td>
+        </tr>
+        <tr id="cols">
+            <td id="3" style="color: antiquewhite; background-color: black;">West signal
+                <table>
+                    <tr id="signal">
+                        <td id="west-red" class="red light"></td>
+                        <td id="west-yellow" class="yellow light"></td>
+                        <td id="west-green" class="green light"></td>
+                    </tr>
+                </table>
+            </td>
+            <td style="background-color: black;"></td>
+            <td id="1" style="color: antiquewhite; background-color: black;">East signal
+                <table>
+                    <tr id="signal">
+                        <td id="east-green" class="green light"></td>
+                        <td id="east-yellow" class="yellow light"></td>
+                        <td id="east-red" class="red light"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="cols">
+            <td style="background-color: green;"></td>
+            <td id="2" style="color: antiquewhite; background-color: black;">South signal light
+                <table>
+                    <tr id="signal">
+                        <td id="south-green" class="green light"></td>
+                        <td id="south-yellow" class="yellow light"></td>
+                        <td id="south-red" class="red light"></td>
+                    </tr>
+                </table>
+            </td>
+            <td style="background-color: green;"></td>
+        </tr>
+    </table>
+    <button onclick="start()" style="height: 50px;width: 50px;">Start</button>
+    <script src="task.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+td,
+#road {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#cols {
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    height: 175px;
+    width: 175px;
+}
+
+.light {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#road {
+    margin: auto;
+}
+
+.red {
+    background-color: red;
+    opacity: 0.3;
+}
+
+.yellow {
+    background-color: yellow;
+    opacity: 0.3;
+}
+
+.green {
+    background-color: green;
+    opacity: 0.3;
+}
