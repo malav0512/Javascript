@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination page</title>
+    <link rel="stylesheet" href="pagination.css">
+</head>
+
+<body>
+    <h1>Pagination</h1>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Contact</td>
+            <td>Gender</td>
+            <td>Date_Of_Birth</td>
+            <td>Address</td>
+        </tr>
+        <tr>
+            <% students.forEach(user=> { %>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.student_name %>
+                </td>
+
+                <td>
+                    <%= user.city %>
+                </td>
+                <td>
+                    <%= user.contact_nob %>
+                </td>
+                <td>
+                    <%= user.date_of_birth %>
+                </td>
+
+                <td>
+                    <%= user.gender %>
+                </td>
+
+                <td>
+                    <%= user.address %>
+                </td>
+        </tr>
+        <% }) %>
+            </tr>
+    </table>
+    <br><br><br>
+    <div id="items"></div>
+
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+    <span>Page: <span id="current-page">1</span></span>
+    <script type="module" src="pagination.js"></script>
+</body>
+
+</html>
