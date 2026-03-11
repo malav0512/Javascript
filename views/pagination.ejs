@@ -6,19 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagination page</title>
     <link rel="stylesheet" href="pagination.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
+
     <h1>Pagination</h1>
+    <div id="page_swipe">
+        <button>
+
+            <a href="/?page=1&sort=<%= sort %>&order=<%= order%>">
+                <i class="fa-solid fa-angles-left"></i> </a>
+
+        </button>
+        <button>
+
+            <a href="/?page=<%= (currentPage>1)?currentPage-1:currentPage %>&sort=<%= sort%>&order=<%= order %>">
+                <i class="fa-solid fa-angle-left"></i> </a>
+
+        </button>
+
+
+        <span>Page: <%= currentPage %></span>
+        <button>
+            <a
+                href="/?page=<%= (currentPage==totalPages)?currentPage:(currentPage+1) %>&sort=<%= sort%>&order=<%= order %>"><i
+                    class="fa-solid fa-angle-right"></i></a>
+        </button>
+        <button>
+
+            <a href="/?page=<%=totalPages%>&sort=<%= sort %>&order=<%= order%>"><i
+                    class="fa-solid fa-angles-right"></i></a>
+
+        </button>
+    </div>
     <table>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Contact</td>
-            <td>Gender</td>
-            <td>Date_Of_Birth</td>
-            <td>Address</td>
+            <th>ID<a href="/?page=<%= currentPage %>&sort=id&order=<%= (order == 'asc')? 'desc' : 'asc' %>"><i
+                        class="fa-solid fa-sort"></i></a></th>
+            <th>Name<a href="/?page=<%= currentPage %>&sort=student_name&order=<%=(order=='asc')?'desc':'asc'%>"><i
+                        class="fa-solid fa-sort"></i></a></th>
+            <th>Email</th>
+            <th>City<a href="/?page=<%= currentPage %>&sort=city&order=<%=(order=='asc')?'desc':'asc'%>"><i
+                        class="fa-solid fa-sort"></i></a></th>
+            <th>Contact</th>
+            <th>Date_Of_Birth</th>
+            <th>Gender</th>
+            <th>Address</th>
         </tr>
         <tr>
             <% students.forEach(user=> { %>
@@ -28,6 +65,9 @@
                 <td>
                     <%= user.student_name %>
                 </td>
+                <td>
+                    <%= user.email %>
+                </td>
 
                 <td>
                     <%= user.city %>
@@ -36,7 +76,8 @@
                     <%= user.contact_nob %>
                 </td>
                 <td>
-                    <%= user.date_of_birth %>
+
+                    <%= user.date_of_birth ? new Date(user.date_of_birth ).toISOString().slice(0, 10) : 'N/A' %>
                 </td>
 
                 <td>
@@ -50,12 +91,7 @@
         <% }) %>
             </tr>
     </table>
-    <br><br><br>
-    <div id="items"></div>
 
-    <button id="prev">Prev</button>
-    <button id="next">Next</button>
-    <span>Page: <span id="current-page">1</span></span>
     <script type="module" src="pagination.js"></script>
 </body>
 
