@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pagination_two.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+
+                <td>
+                    << </td>
+                <td>
+                    < </td>
+                        <% for(let i=startpage;i<=endpage;i++){ %>
+                <td>
+                    <a href="/?page=<%= i%>">
+                        <%= i %>
+
+                    </a>
+                </td>
+                <% }%>
+                    <td><a href="">></a></td>
+                    <td>>></td>
+
+            </tr>
+        </table>
+    </div>
+    <script src="/pagination_app_two.js"></script>
+</body>
+
+</html>

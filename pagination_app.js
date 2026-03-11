@@ -13,10 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const pool = mysql.createConnection({
-    host: DB_HOST,      // your MySQL host
-    user: DB_USER,           // your MySQL username
-    password: DB_PASSWORD, // your MySQL password
-    database: DB_DATABASE
+    host: process.env.DB_HOST,      // your MySQL host
+    user: process.env.DB_USER,           // your MySQL username
+    password: process.env.DB_PASSWORD, // your MySQL password
+    database: process.env.DB_DATABASE
 });
 
 //verification
@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
         pool.query(`SELECT * FROM student order by ${sort} ${order} LIMIT ? OFFSET ?`, [RESULTS_PER_PAGE, offset], (err, studentRows) => {
 
             if (err) throw err;
-            res.render("pagination", {
+            res.render("Pagination/pagination", {
                 students: studentRows,
                 currentPage: page,
                 totalPages: totalPages,
