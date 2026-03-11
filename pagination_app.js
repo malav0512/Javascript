@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require('path');
 const app = express();
@@ -12,10 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const pool = mysql.createConnection({
-    host: 'localhost',      // your MySQL host
-    user: 'root',           // your MySQL username
-    password: 'Dev@123', // your MySQL password
-    database: 'student_table'
+    host: DB_HOST,      // your MySQL host
+    user: DB_USER,           // your MySQL username
+    password: DB_PASSWORD, // your MySQL password
+    database: DB_DATABASE
 });
 
 //verification
