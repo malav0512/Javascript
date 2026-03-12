@@ -61,7 +61,7 @@ let red = [
     document.getElementById("west-red")
 ];
 
-// Order: [West, South, East, North]
+
 const order = [0, 1, 2, 3];
 
 function start() {
@@ -97,5 +97,5 @@ function ops(index) {
 
         }, 2000); // Yellow stays on for 2 seconds
 
-    }, 2000); // Green stays on for 2 seconds
+    }, 5000); // Green stays on for 2 seconds
 }

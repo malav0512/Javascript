@@ -54,6 +54,7 @@ function createGrid(n) {
                 td.addEventListener("click", () => {
 
                     active = 0;
+                    
                     clearInterval(intervalId);
                     createGrid(2);
                     document.getElementById("end").innerText = "WRONG ONE!!"
@@ -65,7 +66,7 @@ function createGrid(n) {
     }
 
 }
-let timeleft = 15;
+let timeleft = 115;
 let timer = document.getElementsByClassName("timer");
 timer[0].innerText = timeleft;
 let countdownTimer;
@@ -73,22 +74,25 @@ let countdownTimer;
 let intervalId;
 function updateDisplay() {
     // Format the time as needed (e.g., minutes:seconds)
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    display.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    const minutes = Math.floor(timeleft / 60);
+    const seconds = timeleft % 60;
+    timer[0].textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 function startTimer() {
+    updateDisplay();
     active = 1;
     document.getElementById("temp").style.pointerEvents = "auto";
     intervalId = setInterval(countdown, 1000);
 }
 
 function countdown() {
+    updateDisplay();
     timeleft--;
 
-    timer[0].innerText = timeleft;
+    
     if (timeleft <= 0) {
         clearInterval(intervalId);
+        document.getElementById("temp").style.pointerEvents = "none";
         timer[0].innerText = "GAME OVER";
         return;
     }
@@ -107,4 +111,4 @@ function reset() {
 
 }
 createGrid(2);
-
+updateDisplay();

@@ -70,9 +70,9 @@ let countdownTimer;
 let intervalId;
 function updateDisplay() {
     // Format the time as needed (e.g., minutes:seconds)
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    display.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    const minutes = Math.floor(timeleft / 60);
+    const seconds = timeleft % 60;
+    timer[0].textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 function startTimer() {
     active = 1;
@@ -81,9 +81,9 @@ function startTimer() {
 }
 
 function countdown() {
+    updateDisplay();
     timeleft--;
 
-    timer[0].innerText = timeleft;
     if (timeleft <= 0) {
         clearInterval(intervalId);
         timer[0].innerText = "GAME OVER";
@@ -104,4 +104,4 @@ function reset() {
 
 }
 createGrid(2);
-
+updateDisplay();
