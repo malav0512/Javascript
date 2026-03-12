@@ -1,10 +1,126 @@
-table,
-td {
-    border: 1px solid black;
-    border-collapse: collapse;
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
+/* Page Wrapper */
 div {
-    display: flex;
-    justify-content: center;
+    width: 80%;
+    margin: 50px auto;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Headers */
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Pagination Table */
+.page {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.page td a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #3498db;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.page td a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Pagination Arrows and First/Last Page */
+.page td a:first-child {
+    border-left: 3px solid #3498db;
+}
+
+.page td a:last-child {
+    border-right: 3px solid #3498db;
+}
+
+.page td a:active {
+    background-color: #2980b9;
+}
+
+/* Data Rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Sort Arrows */
+i {
+    margin-left: 5px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Hover effect for sort arrows */
+i:hover {
+    color: #3498db;
+}
+
+/* Data Table */
+.data td {
+    text-align: left;
+}
+
+.data td a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.data td a:hover {
+    color: #3498db;
+}
+
+/* Styling for Table Rows */
+td {
+    background-color: white;
+    border-top: 1px solid #eee;
+    padding: 12px;
+}
+
+/* Table Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #555;
+}
+
+footer a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+footer a:hover {
+    color: #2980b9;
 }

@@ -5,32 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pagination_two.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Pagination_Two</title>
 </head>
 
 <body>
     <div>
-        <table>
+        <table class="page">
             <tr>
 
-                <td>
-                    << </td>
-                <td>
-                    < </td>
-                        <% for(let i=startpage;i<=endpage;i++){ %>
-                <td>
-                    <a href="/?page=<%= i%>">
-                        <%= i %>
-
-                    </a>
+                <td> <a href="/?page=<%= totalpage-(totalpage-1) %>&sort=<%= sort%>&order=<%= order %>"">
+                        << </a>
                 </td>
-                <% }%>
-                    <td><a href="">></a></td>
-                    <td>>></td>
+                <td>
+                    <a href=" /?page=<%=(currentpage>1)?(currentpage-1): currentpage %>&sort=<%= sort%>&order=<%= order
+                                %>"">
+                                < </a>
+                </td>
+                <% for(let i=startpage;i<=endpage;i++){ %>
+                    <td>
+                        <a href="/?page=<%= i%>&sort=<%= sort%>&order=<%= order %>"">
+                            <%= i %>
+
+                        </a>
+                    </td>
+                    <% }%>
+                        <td><a
+                                href=" /?page=<%=(currentpage<totalpage)?currentpage+1:currentpage %>&sort=<%= sort %>
+                                &order=<%= order %>"> > </a>
+                    </td>
+                    <td><a href="/?page=<%= totalpage %>">>></a></td>
 
             </tr>
         </table>
     </div>
+    <br><br><br>
+    <div>
+        <table class="data">
+            <tr>
+                <td>ID<a href="/?page=<%= currentpage %>&sort=id&order=<%= (order==='asc'? 'desc':'asc')%>"><i
+                            class="fa-solid fa-sort"></a></td>
+                <td>Name<a
+                        href="/?page=<%= currentpage %>&sort=student_name&order=<%= (order==='asc'? 'desc':'asc')%>"><i
+                            class="fa-solid fa-sort"></a></td>
+                <td>Email</td>
+                <td>City<a href="/?page=<%= currentpage %>&sort=city&order=<%= (order==='asc'? 'desc':'asc')%>"><i
+                            class="fa-solid fa-sort"></a></td>
+                <td>Contact</td>
+                <td>Date_Of_Birth</td>
+                <td>Gender</td>
+                <td>Address</td>
+            </tr>
+            <tr>
+                <% studentrows.forEach(user=> { %>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.student_name %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <%= user.contact_nob %>
+                    </td>
+                    <td>
+
+                        <%= user.date_of_birth ? new Date(user.date_of_birth ).toISOString().slice(0, 10) : 'N/A' %>
+                    </td>
+
+                    <td>
+                        <%= user.gender %>
+                    </td>
+
+                    <td>
+                        <%= user.address %>
+                    </td>
+            </tr>
+            <% }) %>
+                </tr>
+        </table>
+    </div>
+
     <script src="/pagination_app_two.js"></script>
 </body>
 

@@ -1,29 +1,36 @@
 const fs = require("fs");
 
-const firstNames = [
-    "Aarav", "Vivaan", "Aditya", "Arjun", "Sai", "Reyansh", "Krishna", "Ishaan", "Shaurya", "Atharva",
-    "Dhruv", "Kabir", "Rohan", "Ananya", "Aadhya", "Diya", "Myra", "Ira", "Anika", "Saanvi",
-    "Priya", "Riya", "Neha", "Sneha", "Pooja", "Kavya", "Nisha", "Meera", "Aditi", "Shruti",
-    "Rahul", "Amit", "Karan", "Varun", "Siddharth", "Yash", "Harsh", "Nikhil", "Manish", "Vikas",
-    "Arnav", "Dev", "Parth", "Om", "Vedant", "Aryan", "Tanmay", "Pranav", "Tanish", "Rajat",
-    "Ashwin", "Jay", "Kunal", "Rakesh", "Suresh", "Mahesh", "Ritu", "Komal", "Payal", "Preeti",
-    "Alok", "Anil", "Sunil", "Rajesh", "Mukesh", "Deepak", "Pankaj", "Ajay", "Vijay", "Sanjay",
-    "Gaurav", "Tarun", "Ravindra", "Bhavesh", "Hitesh", "Jignesh", "Hardik", "Dhaval", "Yogesh", "Chirag",
-    "Tejas", "Mihir", "Nirav", "Kishan", "Ramesh", "Dinesh", "Nitin", "Sachin", "Sagar", "Umesh",
-    "Shweta", "Pallavi", "Bhavna", "Heena", "Trupti", "Sejal", "Rupal", "Krupa", "Falguni", "Minal"
+
+
+const maleFirstNames = [
+    "Kunal", "Rajesh", "Hardik", "Dhruv", "Rohit", "Nikhil", "Aarav", "Tanmay", "Vedant",
+    "Kabir", "Yash", "Deepak", "Ramesh", "Aryan", "Jay", "Aditya", "Vikas", "Om", "Sachin",
+    "Ravindra", "Amit", "Atharva", "Sagar", "Arjun", "Harsh", "Siddharth", "Tejas", "Gaurav",
+    "Pranav", "Sunil", "Reyansh", "Ishaan", "Manish", "Rajat", "Mihir", "Karan", "Kishan",
+    "Varun", "Chirag", "Umesh", "Shaurya", "Dev", "Ashwin", "Dhaval", "Parth", "Tarun",
+    "Dinesh", "Anil", "Vijay", "Nitin", "Bhavesh", "Krishna", "Arnav", "Jignesh", "Hitesh",
+    "Tanish", "Suresh", "Alok", "Mukesh", "Rakesh", "Mahesh", "Yogesh", "Nirav", "Ajay",
+    "Rohan", "Vivaan", "Pankaj", "Malav", "Kris", "Khush", "Danish"
+];
+
+const femaleFirstNames = [
+    "Myra", "Ira", "Shruti", "Ananya", "Pallavi", "Sejal", "Priya", "Krupa", "Minal",
+    "Heena", "Bhavna", "Ritu", "Falguni", "Anika", "Payal", "Komal", "Sneha", "Aadhya",
+    "Preeti", "Nisha", "Neha", "Riya", "Pooja", "Meera", "Rupal", "Trupti", "Saanvi",
+    "Aditi", "Diya", "Avani"
 ];
 
 const lastNames = [
-    "Sharma", "Verma", "Gupta", "Agarwal", "Singh", "Kumar", "Mishra", "Tiwari", "Dubey", "Pandey",
-    "Chatterjee", "Banerjee", "Mukherjee", "Bhattacharya", "Ghosh", "Das", "Dutta", "Sen", "Bose", "Roy",
-    "Patel", "Mehta", "Shah", "Desai", "Trivedi", "Joshi", "Pandya", "Parikh", "Modi", "Vyas",
-    "Reddy", "Naidu", "Rao", "Murthy", "Iyer", "Iyengar", "Nair", "Menon", "Pillai", "Shetty",
-    "Kulkarni", "Joshi", "Deshpande", "Chavan", "Patil", "Sawant", "Kadam", "Jadhav", "Shinde", "More",
-    "Yadav", "Chaudhary", "Chauhan", "Thakur", "Rajput", "Solanki", "Rathore", "Sisodia", "Shekhawat", "Tanwar",
-    "Bansal", "Goyal", "Mittal", "Jindal", "Singhal", "Ahuja", "Arora", "Kapoor", "Malhotra", "Khanna",
-    "Chopra", "Batra", "Sethi", "Suri", "Bedi", "Gill", "Sandhu", "Dhillon", "Brar", "Sidhu",
-    "Saxena", "Srivastava", "Nigam", "Mathur", "Tripathi", "Dwivedi", "Chaturvedi", "Upadhyay", "Pathak", "Agnihotri",
-    "Kamble", "Pawar", "Gaikwad", "Salunkhe", "Gawande", "Shukla", "Mahajan", "Kohli", "Lal", "Sood"
+    "Kapoor", "Pandya", "Murthy", "Roy", "Goyal", "Tripathi", "Kulkarni", "Solanki", "Suri", "Bhattacharya",
+    "Gill", "Mehta", "Jindal", "Dubey", "Pandey", "Shetty", "Ahuja", "Nair", "Joshi", "Pathak",
+    "Patel", "Trivedi", "Khanna", "More", "Desai", "Rathore", "Agnihotri", "Pillai", "Saxena", "Banerjee",
+    "Rajput", "Patil", "Ghosh", "Sidhu", "Chaturvedi", "Bansal", "Vyas", "Batra", "Chopra", "Mahajan",
+    "Das", "Kamble", "Kadam", "Iyengar", "Chaudhary", "Reddy", "Tanwar", "Sharma", "Malhotra", "Chatterjee",
+    "Singh", "Dwivedi", "Shinde", "Upadhyay", "Parikh", "Yadav", "Sandhu", "Deshpande", "Mittal", "Brar",
+    "Kumar", "Dave", "Shah", "Mathur", "Mishra", "Sawant", "Dutta", "Sethi", "Naidu", "Gaikwad",
+    "Verma", "Nigam", "Modi", "Sen", "Arora", "Chavan", "Prajapati", "Bose", "Sisodia", "Shekhawat",
+    "Tiwari", "Gawande", "Srivastava", "Menon", "Salunkhe", "Lal", "Shukla", "Agarwal", "Iyer", "Dhillon",
+    "Chauhan", "Kohli", "Gupta", "Sood", "Mukherjee", "Pawar", "Dhoni", "Bumrah", "Gill", "Tendulkar"
 ];
 // console.log(firstNames[99])
 
@@ -32,7 +39,12 @@ const cities = [
     "Surat",
     "Mumbai",
     "Delhi",
-    "Bangalore"
+    "Bangalore",
+    "Pune",
+    "Hyderabad",
+    "Chennai",
+    "Kolkata",
+    "Jaipur"
 ];
 
 
@@ -82,19 +94,19 @@ const addresses = [
 
     "Ambawadi Road", "Gulbai Tekra Road", "Vastral Road", "Ramol Road", "Ghodasar Road",
     "Lambha Road", "Narol Road", "Sarkhej Gandhinagar Road", "SG Highway", "Sindhu Bhavan Road",
-    "Judges Bungalow Road", "Drive In Road", "Gurukul Road", "Hebatpur Road", "Shela Road"
+    "Judges Bungalow Road", "Drive In Road", "Gurukul Road", "Hebatpur Road", "Shela Road", "Silver Radiance Road", "Maudi-kankot Road", "Dharmendra Road", "Airport Road", "Kasturba Road"
 ];
 
-console.log(addresses.length);
+
 
 function generateAddress() {
     const house = Math.floor(Math.random() * 200) + 1;
-    const street = addresses[Math.floor(Math.random() * 100)];
+    const street = addresses[Math.floor(Math.random() * addresses.length)];
     return house + " " + street;
 }
 
 function generateCity() {
-    const city = cities[Math.floor(Math.random() * 5)];
+    const city = cities[Math.floor(Math.random() * cities.length)];
     return city;
 }
 
@@ -103,27 +115,51 @@ function generategender() {
     return gender;
 }
 
+
+
+// combine male + female
+const firstNames = [
+    ...maleFirstNames.map(n => ({ name: n, gender: "Male" })),
+    ...femaleFirstNames.map(n => ({ name: n, gender: "Female" }))
+];
+
+// generate all combinations
+let combinations = [];
+
+for (let f of firstNames) {
+    for (let l of lastNames) {
+        combinations.push({
+            name: f.name + " " + l,
+            gender: f.gender
+        });
+    }
+}
+
+// shuffle (Fisher-Yates)
+for (let i = combinations.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [combinations[i], combinations[j]] = [combinations[j], combinations[i]];
+}
+
+// take first 10000
+const users = combinations.slice(0, 10000);
+
+// CSV header
 let csv = "id,name,city,contact,dob,gender,address\n";
 
-for (let i = 0; i < 10000; i++) {
-
-    const first = firstNames[Math.floor(i / lastNames.length)];
-    const last = lastNames[i % lastNames.length];
-
-    const name = first + " " + last;
-
-    const user = [
+users.forEach((u, i) => {
+    const row = [
         i + 1,
-        name,
+        u.name,
         generateCity(),
         generatePhone(),
         generateDOB(),
-        generategender(),
+        u.gender,
         generateAddress()
     ];
 
-    csv += user.join(",") + "\n";
-}
+    csv += row.join(",") + "\n";
+});
 
 fs.writeFileSync("users.csv", csv);
 
