@@ -45,8 +45,8 @@
             </select>
             <br><br>
             <label for="gender">Gender
-                <input type="radio" name="gender" class="gender">Male
-                <input type="radio" name="gender" class="gender">Female
+                <input type="radio" name="gender" value="Male" class="gender">Male
+                <input type="radio" name="gender" value="Female" class="gender">Female
             </label>&nbsp;&nbsp;
             <label for="zip_code">Zipcode:</label>
             <input type="text" id="zip_code" name="zip_code">
@@ -64,10 +64,10 @@
             <legend>Educational Details</legend>
             <button type="button" onclick="add_edu_exp()">Add</button>
             <br><br>
-            <input type="text" id="course" name="course">
-            <input type="text" id="board" name="board">
-            <input type="text" id="passing_year" name="passing_year">
-            <input type="text" id="result" name="result">
+            <input type="text" id="course" name="course[]">
+            <input type="text" id="board" name="board[]">
+            <input type="text" id="passing_year" name="passing_year[]">
+            <input type="text" id="result" name="result[]">
             <br><br>
             <table id="edu_table">
                 <tr>
@@ -189,6 +189,9 @@
             </select>
         </fieldset>
         <input type="submit" value="submit">
+        <input type="text" id="education" name="education" hidden>
+        <input type="text" id="reference" name="reference" hidden>
+        <input type="text" id="languages" name="languages" hidden>
     </form>
     <script src="/Job_Application_Task/form.js"></script>
 </body>

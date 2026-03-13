@@ -65,7 +65,11 @@ function validate() {
 
 }
 let rows = 1;
-
+let education=[];
+let reference=[];
+let work_exp=[];
+let languages=[];
+let tech=[];
 function add_edu_exp() {
     const course = document.getElementById("course").value.trim();
     const board = document.getElementById("board").value.trim();
@@ -83,8 +87,10 @@ function add_edu_exp() {
     <td><button type="button" onclick="del_edu_exp('edu_row_${rows}')">Delete</button></td>
     
     </tr>`;
+    education.push({course,board,pass_year,result});
     tblbody.innerHTML += rowhtml;
     rows++;
+    document.getElementById("education").value=JSON.stringify(education)
 
 }
 
@@ -111,8 +117,11 @@ function ref_add() {
         </tr>
         
     `;
+    reference.push({name,contact,relation,relation});
     tbody.innerHTML += rowhtml;
     rowId++;
+
+    document.getElementById("reference").value=JSON.stringify(reference);
 }
 
 function ref_del(rowUniqueId) {
@@ -157,12 +166,22 @@ function add_lang() {
     const add_lang = `
     <tr>
     <td><p>${language}</p></td>
-    <td><input type="checkbox" id="read_${language}" name="speak_${language}">Read</td>
-    <td><input type="checkbox" id="write_${language}" name="speak_${language}">Write</td>
-    <td><input type="checkbox" id="speak_${language}" name="speak_${language}">Speak</td>
+    <td><input type="checkbox" id="read_${language}" name="read_${language}" value="1">Read</td>
+    <td><input type="checkbox" id="write_${language}" name="write_${language}" value="1">Write</td>
+    <td><input type="checkbox" id="speak_${language}" name="speak_${language}" value="1">Speak</td>
     </tr>
+    
     `;
+    let read=document.getElementById(`read_${language}`);
+    let write=document.getElementById(`write_${language}`);
+    let speak=document.getElementById(`speak_${language}`)
+    // console.log(language+" "+document.getElementById(`read_${language}`).value)
+    // console.log(language+" "+document.getElementById(`write_${language}`).value)
+    // console.log(language+" " +document.getElementById(`speak_${language}`).value)
+    languages.push({language,read,write,speak});
+
     lang.innerHTML += add_lang;
+    document.getElementById("languages").value=JSON.stringify(languages);
     lang_row++;
 }
 
@@ -180,6 +199,8 @@ function add_tech_lang() {
     <td><input type="radio" name="tech_id_${tech}">Expert</td>
 
     `;
+    tech.push({tech})
     tr.innerHTML = add_lang;
     tech_lang_row++;
 }
+
