@@ -17,6 +17,7 @@ const pool = mysql.createConnection({
     user: process.env.DB_USER,           // your MySQL username
     password: process.env.DB_PASSWORD, // your MySQL password
     database: process.env.DB_DATABASE
+    
 });
 
 //verification

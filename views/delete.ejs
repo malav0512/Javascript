@@ -8,12 +8,9 @@
 </head>
 
 <body>
-    <h1>main page</h1>
-    <form action="/" method="get">
-        Enrollment:
-        Name:
-        <button>Delete</button>
-        <button>Insert</button>
+    <form action="/delete" method="POST">
+        <input type="text" name="applicant_email" placeholder="Enter email">
+        <button type="submit">Delete</button>
     </form>
     <script src="/crud_app.js"></script>
 </body>
