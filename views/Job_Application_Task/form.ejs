@@ -5,37 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job_Application_Form</title>
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="/Job_Application_Task/form.css">
 </head>
 
 <body>
-    <form onsubmit="validate(event)">
+    <form onsubmit="validate()" method="post" action="/">
         <h1 style="text-align: center;">Job Application Form</h1>
         <fieldset>
             <legend>Basic Details</legend>
             <label for="first_name">First Name:</label>
-            <input type="text" id="first_name">&nbsp;&nbsp;
+            <input type="text" id="first_name" name="first_name">&nbsp;&nbsp;
             <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name">
+            <input type="text" id="last_name" name="last_name">
             <br>
             <br>
             <label for="designation">Designation:</label>
-            <input type="text" id="designation">&nbsp;&nbsp;
+            <input type="text" id="designation" name="designation">&nbsp;&nbsp;
             <label for="address_one">Address-1:</label>
             <textarea name="add_one" id="address_one" style="width: 400px;height: 80px;"></textarea>
             <br>
             <br>
             <label for="email">Email:</label>
-            <input type="text" id="email">&nbsp;&nbsp;
+            <input type="text" id="email" name="email">&nbsp;&nbsp;
             <label for="address_two">Address-2:</label>
             <textarea name="add_two" id="address_two" style="width: 400px;height: 80px;"></textarea>
             <br><br>
             <label for="phone">Phone Nob:</label>
-            <input type="text" id="phone">&nbsp;&nbsp;
+            <input type="text" id="phone" name="phone">&nbsp;&nbsp;
             <label for="city">City:</label>
-            <input type="text" id="city">&nbsp;&nbsp;
+            <input type="text" id="city" name="city">&nbsp;&nbsp;
             <label for="state">State:</label>
-            <select name="states" id="state" required>
+            <select name="states" id="state" name="state" required>
                 <option value="Gujarat" selected>Gujarat</option>
                 <option value="Maharashtra">Maharashtra</option>
                 <option value="Rajastan">Rajastan</option>
@@ -49,10 +49,10 @@
                 <input type="radio" name="gender" class="gender">Female
             </label>&nbsp;&nbsp;
             <label for="zip_code">Zipcode:</label>
-            <input type="text" id="zip_code">
+            <input type="text" id="zip_code" name="zip_code">
             <br><br>
             <label for="relationship">Relationship-status:</label>
-            <select name="relationship" id="relationship">
+            <select name="relationship" id="relationship" name="relationship">
                 <option value="Unmarried" selected>Unmarried</option>
                 <option value="Married">Married</option>
                 <option value="Nosay">Prefer not to say</option>
@@ -64,10 +64,10 @@
             <legend>Educational Details</legend>
             <button type="button" onclick="add_edu_exp()">Add</button>
             <br><br>
-            <input type="text" id="course">
-            <input type="text" id="board">
-            <input type="text" id="passing_year">
-            <input type="text" id="result">
+            <input type="text" id="course" name="course">
+            <input type="text" id="board" name="board">
+            <input type="text" id="passing_year" name="passing_year">
+            <input type="text" id="result" name="result">
             <br><br>
             <table id="edu_table">
                 <tr>
@@ -91,20 +91,20 @@
             <div id="container">
                 <div id="work_block">
                     <label for="company_name">Company Name:</label>
-                    <input type="text" id="company_name">
+                    <input type="text" id="company_name" name="company_name">
                     <label for="from_date">From:</label>
                     <input type="date" name="from_date" id="from_date">
                     <label for="to_date">To Date:</label>
                     <input type="date" name="to_date" id="to_date">
                     <label for="package">Annual-Package:</label>
-                    <input type="text" id="package">
+                    <input type="text" id="package" name="package">
                     <br><br>
                     <label for="reason">Reason To Leave:</label>
                     <textarea name="reason" id="reason" style="width: 200px;height: 120px;"></textarea>
                     <label for="rcontact_nob">Ref Contact Nob:</label>
-                    <input type="text" id="rcontact_nob">
+                    <input type="text" id="rcontact_nob" name="rcontact_nob">
                     <label for="rcontact_name">Ref Contact Name:</label>
-                    <input type="text" id="rcontact_name">
+                    <input type="text" id="rcontact_name" name="rcontact_name">
                     <hr>
                 </div>
             </div>
@@ -115,7 +115,7 @@
 
             <button type="button" onclick="add_lang()">Add</button>
             <br><br>
-            <input type="text" id="language">
+            <input type="text" id="language" name="language">
             <br><br>
             <table id="lang_container">
                 <tr>
@@ -134,7 +134,7 @@
             <legend>Technologies-Known</legend>
             <button type="button" onclick="add_tech_lang()">Add</button>
             <br><br>
-            <input type="text" id="tech">
+            <input type="text" id="tech" name="tech">
             <table id="tech_lang_container">
 
                 <tbody>
@@ -149,9 +149,9 @@
             <button type="button" onclick="ref_add()">Add</button>
 
             <br><br>
-            <input type="text" id="name">
-            <input type="text" id="contact">
-            <input type="text" id="relation">
+            <input type="text" id="name" name="name">
+            <input type="text" id="contact" name="contact">
+            <input type="text" id="relation" name="relation">
             <br><br>
             <table id="ref_table">
                 <tr>
@@ -175,11 +175,11 @@
                 <option value="Disa">Disa</option>
             </select>
             <label for="noticeperiod">Notice Period:</label>
-            <input type="text" id="noticeperiod">
+            <input type="text" id="noticeperiod" name="noticeperiod">
             <label for="expect_ctc">Expected CTC:</label>
-            <input type="text" id="expect_ctc">
+            <input type="text" id="expect_ctc" name="expect_ctc">
             <label for="current_ctc">Current CTC:</label>
-            <input type="text" id="current_ctc">
+            <input type="text" id="current_ctc" name="current_ctc">
             <label for="dept">Department:</label>
             <select name="dept" id="dept">
                 <option value="Development">Development</option>
@@ -190,7 +190,7 @@
         </fieldset>
         <input type="submit" value="submit">
     </form>
-    <script src="form.js"></script>
+    <script src="/Job_Application_Task/form.js"></script>
 </body>
 
 </html>

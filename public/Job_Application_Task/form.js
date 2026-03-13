@@ -1,6 +1,5 @@
 
-function validate(event) {
-    event.preventDefault();
+function validate() {
     let fname = document.getElementById("first_name").value.trim();
     let lname = document.getElementById("last_name").value.trim();
     let designation = document.getElementById("designation").value.trim();
